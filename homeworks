@@ -1,1 +1,81 @@
+from random import choice, randrange
 
+fruit = ('apple', 'pear', 'cherry', 'banana', 12)
+vegetables = ['tomato', 'onion', 'carrot', 17]
+berries = ('blueberry', 'cranberry', 'watermelon', 8)
+fruit=list(fruit)
+berries=list(berries)
+for i in (fruit,vegetables,berries):
+    if i==vegetables:
+        i.insert(0,"Cabbage")
+    for j in range(len(i)):
+        if type(i[j])==int:
+            continue
+        else:
+            if len(i[j])>6:
+                i[j]=i[j][:5]
+                i[j] = i[j].title()
+finished = []
+types_of_products=[fruit,vegetables,berries,finished]
+categories=["fruit","vegetables","berries","finished"]
+storehouse=dict()
+for i in range(len(types_of_products)):
+    storehouse[categories[i]]=types_of_products[i]
+for i in types_of_products:
+    for j in i[:-1]:
+        if j.count("r")==1:
+            print (f"{j} costs {i[-1]-i[-1]*0.2}")
+            continue
+        if j.count("r")==2:
+            print (f"{j} costs {round(i[-1] - i[-1] * 0.255,2)}")
+            continue
+        else: print (f"{j} costs {i[-1]}")
+product_list = []
+for i in storehouse:
+    for j in storehouse[i]:
+        if type(j)==int or j=="carrot" or j=="Water":
+            continue
+        else:
+            product_list.append(j)
+order = {choice(product_list): randrange(10)}
+item=list(order.keys())[0]
+count=order[item]
+for i in types_of_products:
+    if item in i:
+        count*=i[-1]
+new_order=f"New order for {order[item]} {item}(s)"
+total_price=f"Total price: {count}"
+print (new_order)
+print (total_price)
+
+storehouse["vegetables"].remove("carrot")
+storehouse["berries"].remove("Water")
+storehouse["finished"].append("carrot")
+storehouse["finished"].append("Water")
+
+
+
+
+'''
+Обязательные задачи
+'''
+# 1. На склад поступил новый товар. Надо пересмотреть склад и исправить ошибки, сделать первую товара букву заглавной.
+# Все типы товаров должны быть неизменяемыми, чтобы кто-то случайно не перепутал их снова.
+# В овощи забыли добавить капусту. Цифра в категории - это цена товара этого типа.
+
+# 2. Для удобства хранения, нужно объединить все товары в один объект, при этом сохранить структуру типов.
+
+# 3. На складе закончились морковка и арбузы. Надо перенести их в категорию "finished".
+
+# 4. Если название продукта длиннее 6 символов, нужно отображать только первые 6.
+
+'''
+Дополнительные задачи:
+'''
+# 5. На все товары, где есть буква "r", нужно сделать скидку в 20%.
+# А если их 2, то 25,5%, и сумму округлить до 2 символов после запятой.
+# Рассчитать и вывести на экран стоимость каждого отдельного продукта.
+
+# 6. Когда кто-то покупает товар, на экране должен отобразиться чек с товаром, кол-вом и суммой.
+# product_list = []   # В эту переменную нужно добавить все актуальные товары
+# order = {choice(product_list): randrange(10)}     # Заказ на товар и кол-во
