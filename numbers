@@ -1,0 +1,27 @@
+#1st task
+
+class Hotel():
+    numbers = dict()
+    def __init__(self,royal=[2,3],lux=[1,2],standart=1):
+        self.numbers["royal"]=royal
+        self.numbers["lux"] = lux
+        self.numbers["standart"] = standart
+#2nd task
+
+class Room(Hotel):
+    furniture=dict()
+    def __init__(self,bath,bedroom,lounge=0):
+        self.furniture[bath]=bath
+        self.furniture[bedroom] = bedroom
+        self.furniture[lounge] = lounge
+a=Hotel()
+print(a.numbers)
+
+
+1. В отеле есть 3 типа номеров: royal (2-3 комнаты), lux (1-2 комнаты), standard (1 комната). надо добавить метод для создания номеров и хранения их в виде словаря.
+
+2. В комнате есть мебель для ванной, спальни и зала (если есть зал). нужно добавить метод для добавления и удаления из комнаты мебели в любом количестве.
+
+3. Нужно создать один метод для изменения любого номера по заданным параметрам, в том числе удалению и изменению номеров и комнат.
+
+[ Рекомендую выполнить задание с кем-то ещё из группы ]
