@@ -14,8 +14,6 @@ class Room(Hotel):
         self.furniture[bath]=bath
         self.furniture[bedroom] = bedroom
         self.furniture[lounge] = lounge
-a=Hotel()
-print(a.numbers)
 
 
 1. В отеле есть 3 типа номеров: royal (2-3 комнаты), lux (1-2 комнаты), standard (1 комната). надо добавить метод для создания номеров и хранения их в виде словаря.
